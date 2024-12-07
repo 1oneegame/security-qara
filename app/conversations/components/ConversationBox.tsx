@@ -44,9 +44,6 @@ const ConversationBox : React.FC<ConversationBoxProps> = ({data, selected}) => {
     }, [userEmail, lastMessage]);
 
     const lastMessageText = useMemo(() => {
-        if(lastMessage?.image) {
-            return 'Sent an image';
-        }
         if(lastMessage?.body){
             return lastMessage.body
         }
@@ -59,7 +56,7 @@ const ConversationBox : React.FC<ConversationBoxProps> = ({data, selected}) => {
             <div className="min-w-0 flex-1">
                 <div className="focus:outline-none">
                     <div className="flex justify-center items-center mb-1 ">
-                        <p className="text-md font-medium text-gray-900">
+                        <p className="text-md font-medium text-gray-900 mr-auto">
                             {data.name || otherUser?.name}
                         </p>
                         {lastMessage?.createdAt && (
