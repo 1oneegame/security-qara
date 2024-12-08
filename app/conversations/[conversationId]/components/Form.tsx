@@ -24,10 +24,18 @@ const Form = () => {
         }
     });
 
+    const encryptMessage = (message: string): string => {
+        return btoa(message); //Base64
+    };
+
     const onSubmit : SubmitHandler<FieldValues> = (data) => {
         setValue('message', '', {shouldValidate: true});
+  
+        const encryptedMessage = encryptMessage(data.message);
+        
         axios.post('/api/messages', {
             ...data,
+            message: encryptedMessage,
             conversationId
         });
     }
