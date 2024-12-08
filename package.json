@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "comma-separated-tokens": "^2.0.3",
+    "crypto-js": "^4.2.0",
     "date-fns": "^4.1.0",
     "framer-motion": "^11.13.1",
     "hastscript": "^9.0.0",
