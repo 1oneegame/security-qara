@@ -5,25 +5,54 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
 
-interface UserBoxProps{
+interface UserBoxProps {
     data: User
 };
 
-const UserBox : React.FC<UserBoxProps> = ({data}) => {
+const UserBox: React.FC<UserBoxProps> = ({data}) => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
     const handleClick = useCallback(() => {
+        if (isLoading) return;
+        
         setIsLoading(true);
-        axios.post('api/conversations', {
+        
+        axios.post('/api/conversations', {
             userId: data.id
         })
-        .then((data) => router.push(`/conversations/${data.data.id}`))
-        .finally(() => setIsLoading(false));
-    }, [data, router])
+        .then((response) => {
+            if (response.data && response.data.id) {
+                router.push('/conversations/' + response.data.id);
+                router.refresh();
+            }
+        })
+        .catch((error) => {
+            console.error('Error creating conversation:', error);
+        })
+        .finally(() => {
+            setIsLoading(false);
+        });
+    }, [data.id, router, isLoading]);
 
     return(
-        <div onClick={handleClick} className="w-full relative flex items-center space-x-3 bg-white p-3 hover:bg-neutral-100 rounded-lg transition cursor-pointer">
+        <div 
+            onClick={handleClick} 
+            className={`
+                w-full 
+                relative 
+                flex 
+                items-center 
+                space-x-3 
+                bg-white 
+                p-3 
+                hover:bg-neutral-100 
+                rounded-lg 
+                transition 
+                cursor-pointer
+                ${isLoading ? 'opacity-50 cursor-wait' : ''}
+            `}
+        >
             <Avatar user={data} />
             <div className="min-w-0 flex-1">
                 <div className="focus:outline-none">
@@ -37,4 +66,5 @@ const UserBox : React.FC<UserBoxProps> = ({data}) => {
         </div>
     );
 }
+
 export default UserBox;

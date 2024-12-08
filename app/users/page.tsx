@@ -1,11 +1,11 @@
-
 import EmptyState from "../components/EmptyState";
 
-const Page = () => {
+export default function Users() {
     return(
-        <div className="hidden lg:block lg:pl-80 h-full">
-            <EmptyState />
+        <div className="pt-20">
+            <div className="container mx-auto px-4">
+                <EmptyState />
+            </div>
         </div>
     );
 }
-export default Page;

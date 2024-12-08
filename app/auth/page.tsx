@@ -31,6 +31,20 @@ const features = [
 
 export default function Home() {
   return (
-        <AuthForm/>
+    <div className="flex min-h-screen">
+      <div className="hidden lg:flex lg:w-1/2 bg-black flex-col justify-between p-12">
+        <div>
+        </div>
+        <div className="space-y-4">
+          <p className="text-xl text-white/90 leading-relaxed">
+            "Безопасность - это не просто функция, это фундамент доверия между людьми в цифровом мире"
+          </p>
+          <p className="text-white/60">Команда QARA</p>
+        </div>
+      </div>
+      <div className="w-full lg:w-1/2 bg-white">
+        <AuthForm />
+      </div>
+    </div>
   );
 }

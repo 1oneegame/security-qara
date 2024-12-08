@@ -60,7 +60,7 @@ const Body : React.FC<BodyProps> = ({initialMessages}) => {
     }, [conversationId]);
 
     return(
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto pt-32">
             {messages.map((message, i) => (
                 <MessageBox isLast={i === messages.length - 1} key={message.id} data={message} />
             ))}

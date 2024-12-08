@@ -28,7 +28,7 @@ export function Navbar() {
               <ul className="flex justify-center gap-12">
                 {[
                   { name: 'Уязвимости', href: '/vulnerabilities' },
-                  { name: 'Чат', href: '/chat' },
+                  { name: 'Чат', href: '/auth' },
                   { name: 'Уязвимость IP', href: '/scan' }
                 ].map((item) => (
                   <NavItem key={item.name} href={item.href}>{item.name}</NavItem>
