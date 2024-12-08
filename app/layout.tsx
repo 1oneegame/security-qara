@@ -4,6 +4,7 @@ import "./globals.css";
 import ToasterContext from "./context/ToasterContext";
 import AuthContext from "./context/AuthContext";
 import { root } from "postcss";
+import { Navbar } from "@/components/NavBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <AuthContext>
           <ToasterContext/>
+          <Navbar/>
           {children}     
         </AuthContext>
       </body>

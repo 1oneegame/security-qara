@@ -69,7 +69,7 @@ export default function VulnerabilityDashboard() {
   )
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black pt-12">
       <div className="max-w-screen-xl mx-auto px-6 py-12">
         <header className="mb-12">
           <div className="flex items-center space-x-6">
